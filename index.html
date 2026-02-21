@@ -525,11 +525,13 @@ Sedikit dari kita, insyaAllah menjadi pahala yang terus mengalir.
       <input type="number" class="form-control mb-3" placeholder="Jumlah Donasi (Rp)" required>
       <select class="form-select mb-3">
         <option>Metode Pembayaran</option>
-        <option>Midtrans</option>
+
         <option>QRIS</option>
       </select>
       <textarea class="form-control mb-3" placeholder="Doa Terbaik"></textarea>
-      <button type="button" onclick="payNow()" class="btn btn-gold w-100">Donasi Sekarang</button>
+      <button onclick="bukaQRIS()" class="btn btn-gold mt-3">
+  Donasi Sekarang
+</button>
     
 <div id="qrisContainer" style="display:none; margin-top:20px; text-align:center;">
   <h5 style="margin-bottom:15px;">Scan QRIS untuk Donasi</h5>
@@ -659,6 +661,23 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 });
+</script><!-- Popup QRIS -->
+<div id="qrisPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:#fff; padding:20px; border-radius:12px; text-align:center; max-width:400px; width:90%;">
+    <h3>Scan QRIS untuk Donasi</h3>
+    <img src="qris-masjid.png" style="width:100%; max-width:300px;">
+    <br><br>
+    <button onclick="closeQRIS()" style="padding:8px 20px; border:none; background:#c9a227; color:#fff; border-radius:8px;">Tutup</button>
+  </div>
+</div>
+
+<script>
+function bukaQRIS() {
+  document.getElementById("qrisPopup").style.display = "flex";
+}
+function closeQRIS() {
+  document.getElementById("qrisPopup").style.display = "none";
+}
 </script>
 
 </body>
